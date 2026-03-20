@@ -83,5 +83,4 @@ Rails.application.configure do
       system("bundle exec rubocop -A --fail-level=E #{parsable_files.shelljoin}", exception: true)
     end
   end
-
 end
