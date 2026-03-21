@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 namespace :dev do
   desc "Add articles to the database"
   task add_articles: :environment do
-    show_spinner("Adding articles to the database") {add_articles}
+    show_spinner("Adding articles to the database") { add_articles }
   end
 
   def add_articles
     50.times do
       Article.create(
-        title: Faker::Lorem.sentence.delete("."), 
-        body: Faker::Lorem.paragraph(sentence_count: rand(100..200))
+        title: Faker::Lorem.sentence.delete("."),
+        body: Faker::Lorem.paragraph(sentence_count: rand(100..200)),
       )
     end
   end
@@ -20,5 +22,3 @@ namespace :dev do
     spinner.success("(#{msg_end})")
   end
 end
-
-
